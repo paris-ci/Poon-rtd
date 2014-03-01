@@ -20,7 +20,7 @@ public Plugin:myinfo =
 public OnPluginStart()
 {
     //RegConsoleCmd("sm_rtd", Roll_The_Dice, "Lunch the dice and get a message.");
-    //RegConsoleCmd("rtd", Roll_The_Dice, "Lunch the dice and get a message."); same of the first RegConsoleCmd
+    RegConsoleCmd("premium", Roll_The_Dice, "Lunch the dice and get a message.");
     RegConsoleCmd("sm_repair", Repair_The_Dice, "Repair the dice.");
     CreateConVar("sm_poonrtd_version", PLUGIN_VERSION, "Version of Poon RTD", FCVAR_PLUGIN|FCVAR_SPONLY|FCVAR_REPLICATED|FCVAR_NOTIFY);
     AddCommandListener(Listener_Say, "say");
@@ -130,11 +130,11 @@ RTD(client)
     return 1;
 }    
 
-//public Action:Roll_The_Dice(client, args)
-//{
-//    RTD(client);
-//    return Plugin_Handled;
-//}
+public Action:Roll_The_Dice(client, args)
+{
+    RTD(client);
+    return Plugin_Handled;
+}
 
 
 public Action:Repair_The_Dice(client, args)
